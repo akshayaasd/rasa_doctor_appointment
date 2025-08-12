@@ -53,13 +53,12 @@ nlu:
 
 - intent: provide_name
   examples: |
-    - My name is [John](name)
+    - My name is [Aksh](name)
     - I'm [Tedd](name)
-    - It's [Sarah](name)
-    - [Emily](name) here
-    - This is [Michael](name)
-    - I am [Raj](name)
-    - Call me [Anita](name)
+    - [Naresh](name) here
+    - This is [Divya](name)
+    - I am [Gokul](name)
+    - Call me [Harsa](name)
 
 - intent: provide_phone_number
   examples: |
