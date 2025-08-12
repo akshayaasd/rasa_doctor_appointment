@@ -1,38 +1,17 @@
 version: "3.1"
 
 rules:
-
-# Goodbye
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
-# Bot challenge
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
-# Activate appointment form when booking
 - rule: Activate appointment form
   steps:
   - intent: book_appointment
   - action: appointment_form
   - active_loop: appointment_form
 
-# Activate appointment form when rescheduling
-- rule: Activate appointment form for rescheduling
-  steps:
-  - intent: reschedule_appointment
-  - action: appointment_form
-  - active_loop: appointment_form
-
-# Submit appointment form
-- rule: Submit appointment form
+- rule: Submit appointment form and save data
   condition:
-    - active_loop: appointment_form
+  - active_loop: appointment_form
   steps:
   - action: appointment_form
   - active_loop: null
-  - action: utter_slots_values
+  - action: action_save_appointment_to_db
+

@@ -1,0 +1,14 @@
+{
+  "0": "affirm",
+  "1": "book_appointment",
+  "2": "bot_challenge",
+  "3": "deny",
+  "4": "goodbye",
+  "5": "greet",
+  "6": "inquire_clinic_info",
+  "7": "mood_great",
+  "8": "mood_unhappy",
+  "9": "provide_name",
+  "10": "provide_phone_number",
+  "11": "reschedule_appointment"
+}

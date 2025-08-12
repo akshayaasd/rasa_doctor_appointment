@@ -2,64 +2,26 @@ version: "3.1"
 
 stories:
 
-# Small talk flows
-- story: happy path
+- story: book appointment happy path
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-
-# Booking an appointment
 - story: book appointment flow
   steps:
   - intent: book_appointment
   - action: appointment_form
   - active_loop: appointment_form
   - slot_was_set:
+      - name: "Akshh"
+      - phone_number: "9876543210"
       - specialization: "dentist"
-  - slot_was_set:
       - date: "tomorrow"
-  - slot_was_set:
       - time: "10 AM"
   - active_loop: null
-  - action: utter_slots_values
+  - action: action_save_appointment_to_db
 
-# Asking for clinic info
-- story: clinic info flow
+- story: say goodbye
   steps:
-  - intent: inquire_clinic_info
-  - action: utter_clinic_info
-
-# Rescheduling appointment
-- story: reschedule appointment flow
-  steps:
-  - intent: reschedule_appointment
-  - action: appointment_form
-  - active_loop: appointment_form
-  - slot_was_set:
-      - date: "next Monday"
-  - slot_was_set:
-      - time: "3 PM"
-  - active_loop: null
-  - action: utter_slots_values
+  - intent: goodbye
+  - action: utter_goodbye

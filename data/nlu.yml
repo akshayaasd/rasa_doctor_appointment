@@ -10,118 +10,75 @@ nlu:
     - good morning
     - good evening
     - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
     - hi, how are you?
-    - greetings
 
 - intent: goodbye
   examples: |
-    - cu
-    - good bye
-    - see you later
-    - good night
     - bye
     - goodbye
+    - see you later
     - have a nice day
-    - see you around
-    - bye bye
-    - catch you later
 
 - intent: affirm
   examples: |
     - yes
-    - y
     - indeed
-    - of course
-    - sounds good
-    - correct
+    - sure
     - absolutely
-    - sure thing
+    - correct
 
 - intent: deny
   examples: |
     - no
-    - n
     - never
-    - I don't think so
-    - don't like that
-    - no way
+    - don't think so
     - not really
-    - I disagree
 
 - intent: mood_great
   examples: |
-    - perfect
     - great
-    - amazing
-    - feeling like a king
+    - feeling good
     - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so perfect
-    - so good
 
 - intent: mood_unhappy
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
     - sad
-    - very sad
-    - unhappy
     - not good
-    - not very good
-    - extremely sad
-    - feeling down
+    - unhappy
 
 - intent: bot_challenge
   examples: |
     - are you a bot?
-    - are you a human?
     - am I talking to a bot?
-    - am I talking to a human?
-    - is this automated?
+
+- intent: provide_name
+  examples: |
+    - My name is [John](name)
+    - I'm [Tedd](name)
+    - It's [Sarah](name)
+    - [Emily](name) here
+    - This is [Michael](name)
+    - I am [Raj](name)
+    - Call me [Anita](name)
+
+- intent: provide_phone_number
+  examples: |
+    - My number is [9876543210](phone_number)
+    - You can reach me at [123-456-7890](phone_number)
+    - Phone number [9998887777](phone_number)
 
 - intent: book_appointment
   examples: |
     - I want to book an appointment with a [dentist](specialization)
     - Book me a slot with a [cardiologist](specialization) for [tomorrow](date) at [10 AM](time)
     - Schedule an appointment with a [dermatologist](specialization) on [Monday](date) at [2 pm](time)
-    - Can I see a [pediatrician](specialization) on [15th August](date) at [4 PM](time)?
-    - Book a checkup with a [neurologist](specialization) next [Friday](date) morning
-    - I need an appointment with a [general physician](specialization) at [5 PM](time) today
-    - Arrange a visit to a [gynecologist](specialization) on [23rd September](date)
-    - Schedule a consultation with a [cardiologist](specialization)
-    - Book me in for [tomorrow morning](date)
 
 - intent: inquire_clinic_info
   examples: |
     - Where is the clinic located?
     - What are your opening hours?
-    - Can you tell me your clinic address?
-    - Do you work on weekends?
-    - How can I contact the clinic?
-    - Is there parking at the clinic?
-    - Are you open on holidays?
-    - Can I walk in without an appointment?
 
 - intent: reschedule_appointment
   examples: |
     - I want to change my appointment to [Friday](date) at [3 PM](time)
     - Can we move my appointment with the [dentist](specialization) to [next Monday](date)?
-    - Reschedule my checkup to [25th September](date) at [11 AM](time)
-    - Change my booking to [tomorrow](date) afternoon
-    - Please move my appointment to [next Wednesday](date) morning
-    - I need to push my appointment to [Friday](date)
-    - Can we reschedule to [10 AM](time) on [Saturday](date)?

@@ -8,16 +8,34 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - provide_name
+  - provide_phone_number
   - book_appointment
   - inquire_clinic_info
   - reschedule_appointment
+  
 
 entities:
+  - name
+  - phone_number
   - specialization
   - date
   - time
+  
 
 slots:
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+
   specialization:
     type: text
     mappings:
@@ -39,12 +57,9 @@ slots:
 forms:
   appointment_form:
     required_slots:
+      - name
+      - phone_number
       - specialization
-      - date
-      - time
-
-  reschedule_form:
-    required_slots:
       - date
       - time
 
@@ -52,21 +67,11 @@ responses:
   utter_greet:
     - text: "Hello! How can I help you today?"
 
-  utter_cheer_up:
-    - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_ask_name:
+    - text: "May I have your full name, please?"
 
-  utter_did_that_help:
-    - text: "Did that help you?"
-
-  utter_happy:
-    - text: "Great! Let’s proceed."
-
-  utter_goodbye:
-    - text: "Goodbye! Take care."
-
-  utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
+  utter_ask_phone_number:
+    - text: "Could you share your phone number?"
 
   utter_ask_specialization:
     - text: "Which type of doctor do you need? (e.g., cardiologist, dentist, dermatologist)"
@@ -78,17 +83,22 @@ responses:
     - text: "What time works best for your appointment?"
 
   utter_slots_values:
-    - text: "You want to see a {specialization} on {date} at {time}. Is that correct?"
-
-  utter_clinic_info:
-    - text: "Our clinic is located at 123 Health Street and is open from 9 AM to 6 PM, Monday to Saturday."
+    - text: |
+        Thank you {name}. You want to see a {specialization} on {date} at {time}.  
+        We will contact you at {phone_number}. Is that correct?
 
   utter_confirm_appointment:
     - text: "Your appointment with the {specialization} is booked for {date} at {time}. See you then!"
 
-  utter_confirm_reschedule:
-    - text: "Your appointment has been rescheduled to {date} at {time}."
+  utter_goodbye:
+    - text: "Goodbye! Take care."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+actions:
+  - action_save_appointment_to_db
