@@ -1,0 +1,83 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - hi, how are you?
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - have a nice day
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - sure
+    - absolutely
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - don't think so
+    - not really
+
+- intent: mood_great
+  examples: |
+    - great
+    - feeling good
+    - wonderful
+
+- intent: mood_unhappy
+  examples: |
+    - sad
+    - not good
+    - unhappy
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - am I talking to a bot?
+
+- intent: provide_name
+  examples: |
+    - My name is [Aksh](name)
+    - I'm [Tedd](name)
+    - [Naresh](name) here
+    - This is [Divya](name)
+    - I am [Gokul](name)
+    - Call me [Harsa](name)
+
+- intent: provide_phone_number
+  examples: |
+    - My number is [9876543210](phone_number)
+    - You can reach me at [123-456-7890](phone_number)
+    - Phone number [9998887777](phone_number)
+
+- intent: book_appointment
+  examples: |
+    - I want to book an appointment with a [dentist](specialization)
+    - Book me a slot with a [cardiologist](specialization) for [tomorrow](date) at [10 AM](time)
+    - Schedule an appointment with a [dermatologist](specialization) on [Monday](date) at [2 pm](time)
+
+- intent: inquire_clinic_info
+  examples: |
+    - Where is the clinic located?
+    - What are your opening hours?
+
+- intent: reschedule_appointment
+  examples: |
+    - I want to change my appointment to [Friday](date) at [3 PM](time)
+    - Can we move my appointment with the [dentist](specialization) to [next Monday](date)?
