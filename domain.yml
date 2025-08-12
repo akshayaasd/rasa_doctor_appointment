@@ -1,0 +1,94 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - book_appointment
+  - inquire_clinic_info
+  - reschedule_appointment
+
+entities:
+  - specialization
+  - date
+  - time
+
+slots:
+  specialization:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: specialization
+
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+
+  time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time
+
+forms:
+  appointment_form:
+    required_slots:
+      - specialization
+      - date
+      - time
+
+  reschedule_form:
+    required_slots:
+      - date
+      - time
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great! Let’s proceed."
+
+  utter_goodbye:
+    - text: "Goodbye! Take care."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_ask_specialization:
+    - text: "Which type of doctor do you need? (e.g., cardiologist, dentist, dermatologist)"
+
+  utter_ask_date:
+    - text: "On what date would you like to book the appointment?"
+
+  utter_ask_time:
+    - text: "What time works best for your appointment?"
+
+  utter_slots_values:
+    - text: "You want to see a {specialization} on {date} at {time}. Is that correct?"
+
+  utter_clinic_info:
+    - text: "Our clinic is located at 123 Health Street and is open from 9 AM to 6 PM, Monday to Saturday."
+
+  utter_confirm_appointment:
+    - text: "Your appointment with the {specialization} is booked for {date} at {time}. See you then!"
+
+  utter_confirm_reschedule:
+    - text: "Your appointment has been rescheduled to {date} at {time}."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
